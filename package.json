@@ -1,0 +1,18 @@
+{
+  "name": "buycoins",
+  "version": "1.0.0",
+  "description": "Get bitcoin price from a graphql endpoint",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ts-watch": "tsc -w"
+  },
+  "author": "Sodimu Segun Michael",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-graphql": "^0.9.0",
+    "graphql": "^14.5.3",
+    "typescript": "^3.5.3"
+  }
+}
