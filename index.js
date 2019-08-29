@@ -13,6 +13,8 @@ app.use("/graphiql", express_graphql_1.default({
     rootValue: resolver_1.default,
     graphiql: true,
 }));
-app.listen(3000, function () {
+var host = '0.0.0.0';
+var port = process.env.PORT || 3000;
+app.listen(port, host, function () {
     console.log("Running a GraphQL API server at localhost:3000/graphiql");
 });

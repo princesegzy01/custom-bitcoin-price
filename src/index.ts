@@ -15,8 +15,7 @@ app.use(
 );
 
 const host = '0.0.0.0';
-let portArg = process.env.PORT || "3000";
-const port  = parseInt(portArg, 10)
+let port: any = process.env.PORT || 3000;
 
 app.listen(port, host, function(){
     console.log("Running a GraphQL API server at localhost:3000/graphiql");
