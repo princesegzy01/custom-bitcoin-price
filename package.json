@@ -4,6 +4,7 @@
   "description": "Get bitcoin price from a graphql endpoint",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "ts-watch": "tsc -w"
   },
@@ -17,5 +18,9 @@
     "graphql": "^14.5.3",
     "tslint": "^5.19.0",
     "typescript": "^3.5.3"
+  },
+  "engines": {
+    "node": "10.x"
   }
+
 }
