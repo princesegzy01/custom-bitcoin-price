@@ -56,6 +56,22 @@ var root = {
                         marginPrice = 0.0;
                         totalPrice = 0;
                         currentBTCPrice = 0;
+                        // return error if margin is greater than 1
+                        if (margin > 1) {
+                            return [2 /*return*/, "Margin cannot be greater than 1"];
+                        }
+                        // return error if margin is less than or equal to 0
+                        if (margin <= 0) {
+                            return [2 /*return*/, "Margin cannot be lesser or equal to 0"];
+                        }
+                        // return error if type is not equal to buy or sell
+                        if (type != "buy" && type != "sell") {
+                            return [2 /*return*/, "Invalid action type"];
+                        }
+                        // return error if exchange rate is less than or equal to 0
+                        if (exchangeRate <= 0) {
+                            return [2 /*return*/, "Exchange rate cannot be lesser or equal to 0"];
+                        }
                         url = 'https://api.coindesk.com/v1/bpi/currentprice.json';
                         _b.label = 1;
                     case 1:
@@ -74,20 +90,8 @@ var root = {
                     case 3:
                         error_1 = _b.sent();
                         // return error if unnable to get response from the API call
-                        return [2 /*return*/, "Unnable to fetch bitcoin price from coindesk API"];
+                        return [2 /*return*/, "Unable to fetch bitcoin price from coindesk API"];
                     case 4:
-                        // return error if margin is greater than 1
-                        if (margin > 1) {
-                            return [2 /*return*/, "Margin cannot be greater than 1"];
-                        }
-                        // return error if margin is less than or equal to 0
-                        if (margin <= 0) {
-                            return [2 /*return*/, "Margiin cannot be lesser or equal to 0"];
-                        }
-                        // return error if type is not equal to buy or sell
-                        if (type != "buy" && type != "sell") {
-                            return [2 /*return*/, "Invalid type"];
-                        }
                         // get margiin price from the currentBTC price
                         // by getting the margin percentage on the currentBTCPrice
                         marginPrice = currentBTCPrice * margin;
