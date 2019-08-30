@@ -37,6 +37,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+var _this = this;
 Object.defineProperty(exports, "__esModule", { value: true });
 var axios_1 = __importDefault(require("axios"));
 // The root provides a resolver function for each API endpoint
@@ -48,7 +49,7 @@ var root = {
     // based on margin and exchange rates
     calculatePrice: function (_a) {
         var type = _a.type, margin = _a.margin, exchangeRate = _a.exchangeRate;
-        return __awaiter(this, void 0, void 0, function () {
+        return __awaiter(_this, void 0, void 0, function () {
             var marginPrice, totalPrice, currentBTCPrice, url, response, data, error_1, ngnPrice;
             return __generator(this, function (_b) {
                 switch (_b.label) {
@@ -65,14 +66,14 @@ var root = {
                             return [2 /*return*/, "Margin cannot be lesser or equal to 0"];
                         }
                         // return error if type is not equal to buy or sell
-                        if (type != "buy" && type != "sell") {
+                        if (type !== "buy" && type !== "sell") {
                             return [2 /*return*/, "Invalid action type"];
                         }
                         // return error if exchange rate is less than or equal to 0
                         if (exchangeRate <= 0) {
                             return [2 /*return*/, "Exchange rate cannot be lesser or equal to 0"];
                         }
-                        url = 'https://api.coindesk.com/v1/bpi/currentprice.json';
+                        url = "https://api.coindesk.com/v1/bpi/currentprice.json";
                         _b.label = 1;
                     case 1:
                         _b.trys.push([1, 3, , 4]);
@@ -97,12 +98,12 @@ var root = {
                         marginPrice = currentBTCPrice * margin;
                         // if type is buy
                         // add the margin price to the current BTC price
-                        if (type == "buy") {
+                        if (type === "buy") {
                             totalPrice = currentBTCPrice + marginPrice;
                         }
                         // if type is sell
                         // remove marginPrice from currentBTC price.
-                        if (type == "sell") {
+                        if (type === "sell") {
                             totalPrice = currentBTCPrice - marginPrice;
                         }
                         ngnPrice = exchangeRate * totalPrice;
@@ -111,7 +112,7 @@ var root = {
                 }
             });
         });
-    }
+    },
 };
 module.exports = root;
 exports.default = root;
