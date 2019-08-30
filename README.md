@@ -59,3 +59,6 @@ The test for this application are written using the following tech nologies : Mo
 
 To run the test, open your Terminal, cd into the project root and run  `npm test`.
 
+
+
+Feel free to reach out to me if you have any questions at princesegzy01@gmail.com
